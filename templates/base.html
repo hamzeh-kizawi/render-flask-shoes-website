@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Shoe Store{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+
+      <nav>
+        <div class="logo">
+          Speed<span>y</span>
+        </div>
+        
+        <ul>
+          <li><a href="#Men">Men</a></li>
+          <li><a href="#Women">Women</a></li>
+          <li><a href="#View">3D view</a></li>
+          <li><a href="#Sales">Sales</a></li>
+        </ul>
+
+        <div class="icons">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="{{ url_for('login') }}" class="user-icon">
+            <i class="fa-solid fa-user"></i>
+            <div class="items-count">0</div>
+        </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Speedy{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='slider.css') }}">
+{% endblock %}
+
+{% block body %}
+  <section class="container">
+    <div class="slider-wrapper">
+      <div class="slider">
+        <img id="slide-1" src="../static/images-slider/shoes-nb1.jpg" alt="red nick shoes">
+        <img id="slide-2" src="../static/images-slider/shoes-nb2.jpg" alt="pike nike shoes">
+        <img id="slide-3" src="../static/images-slider/shoes-nb3.jpg" alt="black nike shoes">
+        <img id="slide-4" src="../static/images-slider/shoes-nb4.jpg" alt="yellow nike shoes">
+      </div>
+      <div class="slider-nav">
+        <a href="#slide-1"></a>
+        <a href="#slide-2"></a>
+        <a href="#slide-3"></a>
+        <a href="#slide-4"></a>
+      </div>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
