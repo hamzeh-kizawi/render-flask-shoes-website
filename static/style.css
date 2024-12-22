@@ -740,13 +740,13 @@ header nav .icons{
 .right-side {
 }
 
-#wedding {
+#black-boots {
   width: 450px;
   margin-bottom: 20px;
   align-self: flex-end;
 }
 
-#gifts {
+#shoes {
   width: 350px;
   height: 350px;
   object-fit: cover;
@@ -782,7 +782,7 @@ header nav .icons{
   justify-content: space-between;
 }
 
-#lastWatch {
+#couples {
   width: 320px;
   height: 320px;
 }

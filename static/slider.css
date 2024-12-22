@@ -11,7 +11,7 @@
 
 .slider {
   display: flex;
-  aspect-ratio: 18 / 9;
+  aspect-ratio: 28 / 16;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;

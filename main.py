@@ -10,7 +10,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://root:0000@localh
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
-
 # Database Model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,11 +33,11 @@ def home():
 # Login Route
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    # If user is already logged in, show logout option
+    # If user is already logged in, to show logout option
     if "username" in session:
         return render_template("login.html", logged_in=True, username=session['username'])
 
-    # Handle login form submission
+    # to handle login form submission
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
@@ -48,7 +47,7 @@ def login():
             return redirect(url_for('home'))
         return render_template("login.html", error="Invalid username or password")
 
-    # Show login form
+    # to show login form
     return render_template("login.html", logged_in=False)
 
 
@@ -60,13 +59,13 @@ def register():
         email = request.form['email']
         password = request.form['password']
 
-        # Check if username or email exists
+        # to check if username or email exists
         if User.query.filter_by(username=username).first():
             return render_template("register.html", error="Username already exists")
         if User.query.filter_by(email=email).first():
             return render_template("register.html", error="Email already exists")
 
-        # Create and add new user
+        # to create and add new user
         new_user = User(username=username, email=email)
         new_user.set_password(password)
         db.session.add(new_user)
@@ -85,7 +84,7 @@ def logout():
     return redirect(url_for('home'))
 
 
-# Initialize Database
+# Start Database
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
