@@ -67,6 +67,10 @@ header nav .icons i:hover{
   color: #7d0301;
 }
 
+header nav .icons a{
+  text-decoration: none;
+}
+
 header nav .icons{
   position: relative;
 }

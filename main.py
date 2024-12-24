@@ -76,6 +76,12 @@ def register():
 
     return render_template("register.html")
 
+@app.route("/checkout")
+def checkout():
+    # Here you can pass any necessary data for the checkout page.
+    # For now, we just render the template.
+    return render_template("checkout.html")
+
 
 # Logout Route
 @app.route("/logout")

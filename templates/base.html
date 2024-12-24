@@ -24,12 +24,17 @@
         </ul>
 
         <div class="icons">
-          <i class="fa-solid fa-cart-shopping"></i>
+          <!-- Shopping Cart Icon -->
+          <a href="{{ url_for('checkout') }}" class="cart-icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <div class="items-count">0</div>
+          </a>
+          <!-- User Icon -->
           <a href="{{ url_for('login') }}" class="user-icon">
-            <i class="fa-solid fa-user"></i>
-            <div class="items-count">0</div>
-        </a>
-        </div>
+              <i class="fa-solid fa-user"></i>
+          </a>
+      </div>
+      
       </nav>
     </header>
     <main>
