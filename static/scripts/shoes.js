@@ -1,4 +1,4 @@
-import { allProduct} from "/static/data/all-products.js";
+import { allProduct, cart} from "/static/data/all-products.js";
 
 /* shoes generation with js*/
 
@@ -121,9 +121,11 @@ allProduct.sales.forEach((item)=>{
       });
 
       document.querySelector(".cart-quantity-js").innerHTML = cartQuantity; 
+      console.log(cart);
+      
     });
   });
-
+  
 /* end add to cart button */
 
 
