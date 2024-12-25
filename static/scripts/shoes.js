@@ -1,4 +1,5 @@
-import { allProduct, cart} from "/static/data/all-products.js";
+import { allProduct} from "/static/data/all-products.js";
+import { cart, addToCart } from "/static/data/cart.js";
 
 /* shoes generation with js*/
 
@@ -92,37 +93,23 @@ allProduct.sales.forEach((item)=>{
 
 
 /* add to cart button */
+
+function updateCartQuantity(){
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem)=>{
+    cartQuantity += cartItem.amount;
+  });
+
+  document.querySelector(".cart-quantity-js").innerHTML = cartQuantity;
+}
+
  document.querySelectorAll(".add-btn-js")
   .forEach((button)=>{
     button.addEventListener('click', ()=>{
       const productId = button.dataset.productId;
-
-      let matchingItem;
-
-      cart.forEach((item)=>{
-        if(productId === item.productId){
-          matchingItem = item;
-        }
-      });
-
-      if(matchingItem){
-        matchingItem.amount += 1
-      } else {
-        cart.push({
-          productId: productId,
-          amount: 1
-        });
-      }
-
-      let cartQuantity = 0;
-
-      cart.forEach((item)=>{
-        cartQuantity += item.amount;
-      });
-
-      document.querySelector(".cart-quantity-js").innerHTML = cartQuantity; 
-      console.log(cart);
-      
+      addToCart(productId);
+      updateCartQuantity();
     });
   });
   
