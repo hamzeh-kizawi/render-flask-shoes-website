@@ -86,49 +86,15 @@
     </div>
   </div>
   <!--cart container-->
-  <div class="order-info">
+  <div class="order-info js-order-info">
     <div class="product-header">
       <p>Your cart:</p>
       <img src="../static/cards-iamges/edit-picture.png">
     </div>
-    <div class="product-one">
-      <div class="product-image">
-        <img src="../static/shoes-images/men-shoes1.png">
-      </div>
-      <div class="product-details">
-        <h2>Yellow Nike Blaze</h2>
-        <div class="quantity">
-          <p>Amount:</p>
-          <button class="quantity-btn minus-btn">-</button>
-          <input class="quantity-input" type="text" value="1">
-          <button class="quantity-btn plus-btn">+</button>
-        </div>
-        <div class="size">
-          <label for="size">Size:</label>
-          <select name="size" id="size">
-            <option value="4">Size 4</option>
-            <option value="5">Size 5</option>
-            <option value="6">Size 6</option>
-            <option value="7">Size 7</option>
-            <option value="8">Size 8</option>
-            <option value="9">Size 9</option>
-            <option value="10">Size 10</option>
-            <option value="10">Size 11</option>
-          </select>
-        </div>
-      </div>
-      <div class="product-price">
-        <div class="discount">
-          <p class="discount-percentage">-20%</p>
-        </div>
-        <div class="price">
-          $120
-        </div>
-      </div>
-      <div class="delete-logo">
-        <i class="fa-solid fa-trash"></i>
-      </div>
+    <div class="order-summery-js">
+      
     </div>
+    
 
     <div class="discount-container">
       <p>Promo Code:</p>
@@ -152,5 +118,7 @@
     </div>
   </div>
 </div>
+
+<script type="module" src="{{ url_for('static', filename='scripts/checkout.js') }}"></script>
 {% endblock %}
 
