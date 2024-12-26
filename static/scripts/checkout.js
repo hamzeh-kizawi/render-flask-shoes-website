@@ -40,7 +40,6 @@ cart.forEach((cartItem) => {
   const matchingProduct = findProductById(productId);
 
   if (matchingProduct) {
-
     // determine the `discount`
     const discountStyle =
       matchingProduct.status === ""
@@ -48,7 +47,7 @@ cart.forEach((cartItem) => {
         : "";
 
     cartSummaryHTML += `
-      <div class="product-one">
+      <div class="product-one product-one-container-js-${matchingProduct.productId}">
         <div class="product-image">
           <img src="${matchingProduct.productImage}">
         </div>
@@ -98,5 +97,10 @@ document.querySelectorAll(".js-delete-button").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;
     removeFromCart(productId);
+
+    const container = document.querySelector(
+      `.product-one-container-js-${productId}`
+    );
+    container.remove();
   });
 });
