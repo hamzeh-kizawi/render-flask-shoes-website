@@ -426,6 +426,7 @@
   font-size: 23px;
   top: 7px;
   right: 10px;
+  cursor: pointer;
 }
 
 .delete-logo i{

@@ -6,7 +6,7 @@ export let cart = [
   {
     productId: "17",
     amount: 1,
-  }
+  },
 ];
 
 export function addToCart(productId) {
@@ -26,4 +26,15 @@ export function addToCart(productId) {
       amount: 1,
     });
   }
+}
+
+export function removeFromCart(productId) {
+  const newCart = [];
+  cart.forEach((cartItem) => {
+    if (cartItem.productId !== productId) {
+      newCart.push(cartItem);
+    }
+  });
+
+  cart = newCart;
 }

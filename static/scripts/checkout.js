@@ -1,4 +1,4 @@
-import { cart } from "/static/data/cart.js";
+import { cart, removeFromCart } from "/static/data/cart.js";
 import { allProduct } from "/static/data/all-products.js";
 
 let cartSummaryHTML = "";
@@ -40,13 +40,13 @@ cart.forEach((cartItem) => {
   const matchingProduct = findProductById(productId);
 
   if (matchingProduct) {
-    console.log(matchingProduct);
 
-    // determine the `discount` 
-    const discountStyle = matchingProduct.status === "" 
-      ? "display: none;" // Hide the discount div if status is empty
-      : "";
-      
+    // determine the `discount`
+    const discountStyle =
+      matchingProduct.status === ""
+        ? "display: none;" // Hide the discount div if status is empty
+        : "";
+
     cartSummaryHTML += `
       <div class="product-one">
         <div class="product-image">
@@ -82,7 +82,7 @@ cart.forEach((cartItem) => {
             ${matchingProduct.productPrice}
           </div>
         </div>
-        <div class="delete-logo">
+        <div class="delete-logo js-delete-button" data-product-id=${matchingProduct.productId}>
           <i class="fa-solid fa-trash"></i>
         </div>
       </div>
@@ -93,3 +93,10 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector(".order-summery-js").innerHTML = cartSummaryHTML;
+
+document.querySelectorAll(".js-delete-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const productId = button.dataset.productId;
+    removeFromCart(productId);
+  });
+});
