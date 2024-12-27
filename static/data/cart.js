@@ -1,6 +1,6 @@
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart = JSON.parse(localStorage.getItem("cart"));
 
-if (!cart){
+if (!cart) {
   cart = [
     {
       productId: "1",
@@ -13,9 +13,8 @@ if (!cart){
   ];
 }
 
-
-function saveToStorage(){
-  localStorage.setItem('cart', JSON.stringify(cart))
+function saveToStorage() {
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 export function addToCart(productId) {
@@ -38,6 +37,7 @@ export function addToCart(productId) {
   saveToStorage();
 }
 
+
 export function removeFromCart(productId) {
   const newCart = [];
   cart.forEach((cartItem) => {
@@ -47,6 +47,84 @@ export function removeFromCart(productId) {
   });
 
   cart = newCart;
-
   saveToStorage();
+}
+
+
+export function updateQuantity(productId, change) {
+  const cartItem = cart.find((item) => item.productId === productId);
+  if (cartItem) {
+    cartItem.amount += change;
+    if (cartItem.amount < 1) {
+      cartItem.amount = 1;
+    }
+
+    saveToStorage(); 
+  }
+}
+
+
+
+
+export function calculateCartPrice(allProduct) {
+  let totalPrice = 0;
+
+  cart.forEach((cartItem) => {
+    const matchingProduct = findProductById(cartItem.productId, allProduct);
+    if (matchingProduct) {
+      const productPrice = parseFloat(
+        matchingProduct.productPrice.replace("$", "").trim()
+      );
+      totalPrice += productPrice * cartItem.amount;
+    }
+  });
+
+  return totalPrice.toFixed(2);
+}
+
+export function calculateCartSubTotalPrice(allProduct) {
+  let totalPrice = 0;
+
+  cart.forEach((cartItem) => {
+    const matchingProduct = findProductById(cartItem.productId, allProduct);
+    if (matchingProduct) {
+      const productPrice = parseFloat(
+        matchingProduct.productPrice.replace("$", "").trim()
+      );
+      totalPrice += productPrice;
+    }
+  });
+
+  return totalPrice.toFixed(2);
+}
+
+export function findProductById(productId, allProduct) {
+  let matchingProduct;
+
+  // Search in 'men' category
+  allProduct.men.forEach((product) => {
+    if (product.productId === productId) {
+      matchingProduct = product;
+    }
+  });
+
+  // Search in 'women'
+  if (!matchingProduct) {
+    allProduct.women.forEach((product) => {
+      if (product.productId === productId) {
+        matchingProduct = product;
+      }
+    });
+  }
+
+  // Search in 'sales'
+  if (!matchingProduct) {
+    allProduct.sales.forEach((product) => {
+      if (product.productId === productId) {
+        matchingProduct = product;
+      }
+    });
+  }
+
+  return matchingProduct;
 }

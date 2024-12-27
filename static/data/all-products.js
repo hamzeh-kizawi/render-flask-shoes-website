@@ -2,14 +2,14 @@ export const allProduct = {
   men: [{
     productId: "1",
     productImage: "/static/shoes-images/men-shoes1.png",
-    productPrice: "120",
+    productPrice: "$ 120",
     productName: "Yellow Nike Blaze",
     status: ""
   },
   {
     productId: "2",
     productImage: "/static/shoes-images/men-shoes2.png",
-    productPrice: "80",
+    productPrice: "$ 80",
     productName: "Nike Monochrome Glide",
     status: ""
   },
