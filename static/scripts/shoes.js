@@ -1,5 +1,5 @@
 import { allProduct} from "/static/data/all-products.js";
-import { cart, addToCart } from "/static/data/cart.js";
+import { cart, addToCart,updateCartQuantity } from "/static/data/cart.js";
 
 /* shoes generation with js*/
 
@@ -94,25 +94,17 @@ allProduct.sales.forEach((item)=>{
 
 /* add to cart button */
 
-function updateCartQuantity(){
-  let cartQuantity = 0;
 
-  cart.forEach((cartItem)=>{
-    cartQuantity += cartItem.amount;
-  });
-
-  document.querySelector(".cart-quantity-js").innerHTML = cartQuantity;
-}
-
- document.querySelectorAll(".add-btn-js")
+document.querySelectorAll(".add-btn-js")
   .forEach((button)=>{
     button.addEventListener('click', ()=>{
       const productId = button.dataset.productId;
       addToCart(productId);
       updateCartQuantity();
     });
-  });
+});
   
+updateCartQuantity();
 /* end add to cart button */
 
 
