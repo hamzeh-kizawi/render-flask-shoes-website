@@ -1,5 +1,5 @@
 import {
-  cart,addToCart, removeFromCart, updateQuantity, updateSize, calculateCartPrice,
+  cart, addToCart, removeFromCart, updateQuantity, updateSize, calculateCartPrice,
   findProductById, calculateCartSubTotalPrice, updateCartQuantity,
 } from "/static/data/cart.js";
 import { allProduct } from "/static/data/all-products.js";
@@ -90,7 +90,7 @@ function attachEventListeners() {
     select.addEventListener("change", () => {
       const productId = select.dataset.productId;
       const selectedSize = select.value;
-      updateSize(productId, selectedSize); // Update size in the cart
+      updateSize(productId, selectedSize);
     });
   });
 
