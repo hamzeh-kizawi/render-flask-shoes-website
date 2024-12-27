@@ -38,8 +38,8 @@
 
 .main-container{
   display: flex;
-  flex-direction: row;
   margin-top: 40px;
+  padding: 20px;
 }
 
 .info-container {
@@ -91,6 +91,10 @@
   padding-bottom: 10px; 
   border-bottom: 2px solid black; 
   margin-bottom: 20px;
+}
+.login-btn-checkout{
+  color: white;
+  text-decoration: none;
 }
 
 .contact-data .contact-text{
@@ -290,14 +294,13 @@
 
 /* cart section*/
 .order-info{
-  flex: 4;
   display: flex;
   flex-direction: column;
   margin-top: 65px;
   height: 100vh;
   overflow: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
 
 .order-info .product-header{
@@ -312,9 +315,7 @@
   font-weight: 500;
 }
 
-.order-info .product-header img{
-  margin-right: 50px;
-}
+
 
 .order-info .product-header img{
   width: 30px;
