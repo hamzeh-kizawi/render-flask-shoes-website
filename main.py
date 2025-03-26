@@ -65,7 +65,6 @@ def register():
         if User.query.filter_by(email=email).first():
             return render_template("register.html", error="Email already exists")
 
-        # to create and add new user
         new_user = User(username=username, email=email)
         new_user.set_password(password)
         db.session.add(new_user)
@@ -78,20 +77,16 @@ def register():
 
 @app.route("/checkout")
 def checkout():
-    # Here you can pass any necessary data for the checkout page.
-    # For now, we just render the template.
     return render_template("checkout.html")
 
 
-# Logout Route
 @app.route("/logout")
 def logout():
     session.pop('username', None)
     return redirect(url_for('home'))
 
 
-# Start Database
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run()
